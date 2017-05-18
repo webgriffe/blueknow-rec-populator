@@ -2,12 +2,12 @@
     "name": "webgriffe/blueknow-rec-populator",
     "type": "magento-module",
     "license":"MIT",
-    "description":"Magento module that try to populate automatically the Blueknow Recommender widgets in the page with random products taken from the DB",
+    "description":"Magento 1 module that try to populate automatically the Blueknow Recommender widgets in the page with random products taken from the DB. This should be should for testing purpose only.",
     "authors":[
         {
             "name":"Webgriffe SRL",
             "email":"support@webgriffe.com"
         }
     ],
-    "keywords":["magento","blueknow","recommender","blueknow recommender","populator"]
+    "keywords":["magento","magento 1","blueknow","recommender","blueknow recommender","populator"]
 }
