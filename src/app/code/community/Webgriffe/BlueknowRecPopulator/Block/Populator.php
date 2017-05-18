@@ -4,6 +4,8 @@
 class Webgriffe_BlueknowRecPopulator_Block_Populator extends Mage_Core_Block_Template
 {
     const RENDER_ITEMS_COMMAND_NAME = 'renderItems';
+    const DEFAULT_COLLECTION_SIZE = 12;
+    const COLLECTION_SIZE_PARAMETER_NAME = 'reclimit';
 
     /**
      * @inheritdoc
@@ -21,7 +23,7 @@ class Webgriffe_BlueknowRecPopulator_Block_Populator extends Mage_Core_Block_Tem
     public function generatePopulatorCommand()
     {
         $_products = [];
-        $_productCollection = $this->getProductCollection();
+        $_productCollection = $this->getProductCollection($this->getCollectionSize());
         foreach ($_productCollection as $_product) {
             $_productUrl = $_product->getProductUrl();
             $_productImage = Mage::helper('catalog/image')->init($_product, 'small_image');
@@ -38,9 +40,10 @@ class Webgriffe_BlueknowRecPopulator_Block_Populator extends Mage_Core_Block_Tem
     }
 
     /**
+     * @param int $collectionSize
      * @return \Iterator|Mage_Catalog_Model_Resource_Product_Collection
      */
-    private function getProductCollection()
+    private function getProductCollection($collectionSize)
     {
         /** @var Mage_Catalog_Model_Resource_Product_Collection|\Iterator $_productCollection */
         $_productCollection = Mage::getModel('catalog/product')
@@ -55,9 +58,19 @@ class Webgriffe_BlueknowRecPopulator_Block_Populator extends Mage_Core_Block_Tem
             )
             ->addAttributeToSelect(['name', 'small_image', 'price'])
         ;
-        $_productCollection->getSelect()->order(new Zend_Db_Expr('RAND()'))->limit(10);
+        $_productCollection->getSelect()->order(new Zend_Db_Expr('RAND()'))->limit($collectionSize);
         return $_productCollection;
     }
 
-
+    /**
+     * @return int
+     */
+    private function getCollectionSize()
+    {
+        $collectionSize = $this->getRequest()->getParam(
+            self::COLLECTION_SIZE_PARAMETER_NAME,
+            self::DEFAULT_COLLECTION_SIZE
+        );
+        return is_numeric($collectionSize) ? $collectionSize : self::DEFAULT_COLLECTION_SIZE;
+    }
 }
