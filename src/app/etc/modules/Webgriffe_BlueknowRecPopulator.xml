@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Webgriffe_BlueknowRecPopulator>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Core/>
+                <Mage_Catalog/>
+                <Blueknow_Recommender/>
+            </depends>
+        </Webgriffe_BlueknowRecPopulator>
+    </modules>
+</config>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="content">
+            <block type="webgriffe_blueknowrecpopulator/populator" name="webgriffe.blueknow.populator" template="webgriffe/blueknow-rec/populator.phtml" />
+        </reference>
+    </default>
+</layout>

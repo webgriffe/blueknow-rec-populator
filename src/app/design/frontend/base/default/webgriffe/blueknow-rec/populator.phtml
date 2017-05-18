@@ -1,0 +1,8 @@
+<?php /** @var Webgriffe_BlueknowRecPopulator_Block_Populator $this */ ?>
+<script>
+    jQuery(document).ready(function() {
+        if (typeof renderItems === "function") {
+            <?php echo $this->generatePopulatorCommand(); ?>
+        }
+    });
+</script>

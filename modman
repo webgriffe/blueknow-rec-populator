@@ -1,0 +1,4 @@
+src/app/code/community/Webgriffe/BlueknowRecPopulator/ app/code/community/Webgriffe/BlueknowRecPopulator/
+src/app/design/frontend/base/default/layout/blueknow_rec_populator.xml app/design/frontend/base/default/layout/blueknow_rec_populator.xml
+src/app/design/frontend/base/default/webgriffe/blueknow-rec/populator.phtml app/design/frontend/base/default/webgriffe/blueknow-rec/populator.phtml
+src/app/etc/modules/Webgriffe_BlueknowRecPopulator.xml app/etc/modules/Webgriffe_BlueknowRecPopulator.xml
